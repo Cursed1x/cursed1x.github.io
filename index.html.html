@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#09090d" />
+  <title>CURSED1X — Links</title>
+  <style>
+    :root {
+      --bg: #07070b;
+      --card: rgba(17, 17, 24, 0.72);
+      --border: rgba(255,255,255,.09);
+      --text: #f7f7fb;
+      --muted: #a5a5b4;
+      --red: #ff174f;
+      --purple: #8b5cf6;
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 10%, rgba(255, 23, 79, .18), transparent 32%),
+        radial-gradient(circle at 85% 20%, rgba(139, 92, 246, .18), transparent 32%),
+        linear-gradient(145deg, #050508 0%, #0a0a10 50%, #050508 100%);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .28;
+      background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, black, transparent 85%);
+    }
+
+    .orb {
+      position: fixed;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: .18;
+      pointer-events: none;
+      animation: float 9s ease-in-out infinite;
+    }
+    .orb.one { background: var(--red); left: -130px; top: 30%; }
+    .orb.two { background: var(--purple); right: -140px; top: 55%; animation-delay: -4s; }
+
+    @keyframes float {
+      0%,100% { transform: translateY(0) translateX(0); }
+      50% { transform: translateY(-35px) translateX(18px); }
+    }
+
+    .wrap {
+      width: min(680px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 58px 0 42px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .profile {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .avatar {
+      width: 94px;
+      height: 94px;
+      margin: 0 auto 17px;
+      border-radius: 28px;
+      display: grid;
+      place-items: center;
+      font-weight: 950;
+      font-size: 26px;
+      letter-spacing: -1.5px;
+      background: linear-gradient(135deg, #171720, #09090d);
+      border: 1px solid rgba(255,255,255,.13);
+      box-shadow:
+        0 0 0 7px rgba(255,255,255,.025),
+        0 0 45px rgba(255, 23, 79, .20),
+        inset 0 0 30px rgba(139, 92, 246, .08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .avatar::after {
+      content: "";
+      position: absolute;
+      inset: -60%;
+      background: linear-gradient(115deg, transparent 42%, rgba(255,255,255,.12), transparent 58%);
+      transform: rotate(20deg);
+      animation: shine 4s linear infinite;
+    }
+
+    @keyframes shine {
+      0% { transform: translateX(-45%) rotate(20deg); }
+      100% { transform: translateX(45%) rotate(20deg); }
+    }
+
+    h1 {
+      font-size: clamp(34px, 8vw, 52px);
+      line-height: .95;
+      letter-spacing: -2.8px;
+      font-weight: 950;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, #fff 0%, #fff 38%, #ff4c75 65%, #a78bfa 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 30px rgba(255,23,79,.12);
+    }
+
+    .handle {
+      color: var(--muted);
+      margin-top: 9px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .3px;
+    }
+
+    .bio {
+      max-width: 540px;
+      margin: 15px auto 0;
+      color: #c8c8d3;
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    .links {
+      display: grid;
+      gap: 13px;
+      margin-top: 26px;
+    }
+
+    .link {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      min-height: 68px;
+      padding: 12px 17px;
+      text-decoration: none;
+      color: var(--text);
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      backdrop-filter: blur(16px);
+      box-shadow: var(--shadow);
+      transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease, background .22s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .link::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(255,23,79,.08), transparent 45%, rgba(139,92,246,.08));
+      opacity: 0;
+      transition: opacity .22s ease;
+    }
+
+    .link:hover {
+      transform: translateY(-3px) scale(1.008);
+      border-color: rgba(255,255,255,.18);
+      box-shadow: 0 20px 65px rgba(0,0,0,.55), 0 0 28px rgba(255,23,79,.09);
+    }
+    .link:hover::before { opacity: 1; }
+
+    .icon {
+      width: 43px;
+      height: 43px;
+      flex: 0 0 43px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      background: linear-gradient(135deg, rgba(255,23,79,.17), rgba(139,92,246,.17));
+      border: 1px solid rgba(255,255,255,.08);
+      font-size: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .copy { flex: 1; position: relative; z-index: 1; }
+    .title { display: block; font-size: 15px; font-weight: 850; }
+    .sub { display: block; margin-top: 3px; color: var(--muted); font-size: 12px; font-weight: 600; }
+
+    .arrow {
+      color: #777786;
+      font-size: 21px;
+      position: relative;
+      z-index: 1;
+      transition: transform .22s ease, color .22s ease;
+    }
+    .link:hover .arrow { transform: translateX(4px); color: #fff; }
+
+    .featured {
+      border-color: rgba(255,23,79,.32);
+      background: linear-gradient(135deg, rgba(255,23,79,.12), rgba(139,92,246,.09)), var(--card);
+    }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 27px 4px 11px;
+      color: #777786;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .section-label::after {
+      content: "";
+      height: 1px;
+      flex: 1;
+      background: linear-gradient(90deg, rgba(255,255,255,.1), transparent);
+    }
+
+    .socials {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 13px;
+    }
+
+    footer {
+      text-align: center;
+      color: #666675;
+      font-size: 11px;
+      font-weight: 700;
+      margin-top: 30px;
+    }
+
+    .dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      margin-right: 7px;
+      border-radius: 50%;
+      background: #39ff88;
+      box-shadow: 0 0 12px #39ff88;
+      vertical-align: middle;
+    }
+
+    @media (max-width: 500px) {
+      .wrap { padding-top: 40px; }
+      .socials { grid-template-columns: 1fr; }
+      .link { min-height: 64px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="orb one"></div>
+  <div class="orb two"></div>
+
+  <main class="wrap">
+    <section class="profile">
+      <div class="avatar">C1X</div>
+      <h1>CURSED1X</h1>
+      <div class="handle">@Cursed1x_</div>
+      <p class="bio">
+        Gaming • Cronus Zen • Scripts • Programs • Networking<br>
+        Join the community, connect with other gamers, and stay locked in.
+      </p>
+    </section>
+
+    <section class="links">
+      <a class="link featured" href="https://discord.gg/ZVEzxvQxe" target="_blank" rel="noopener">
+        <div class="icon">💬</div>
+        <div class="copy">
+          <span class="title">Join the Discord</span>
+          <span class="sub">Scripts • Guides • Programs • Gaming Community</span>
+        </div>
+        <div class="arrow">›</div>
+      </a>
+
+      <a class="link" href="https://www.youtube.com/@Cursed1x_" target="_blank" rel="noopener">
+        <div class="icon">▶</div>
+        <div class="copy">
+          <span class="title">YouTube</span>
+          <span class="sub">@Cursed1x_</span>
+        </div>
+        <div class="arrow">›</div>
+      </a>
+
+      <div class="section-label">Socials</div>
+
+      <div class="socials">
+        <a class="link" href="https://www.tiktok.com/@Cursed1xx_" target="_blank" rel="noopener">
+          <div class="icon">♪</div>
+          <div class="copy">
+            <span class="title">TikTok</span>
+            <span class="sub">@Cursed1xx_</span>
+          </div>
+          <div class="arrow">›</div>
+        </a>
+
+        <a class="link" href="https://www.tiktok.com/@Upci33" target="_blank" rel="noopener">
+          <div class="icon">♪</div>
+          <div class="copy">
+            <span class="title">TikTok</span>
+            <span class="sub">@Upci33</span>
+          </div>
+          <div class="arrow">›</div>
+        </a>
+      </div>
+
+      <div class="section-label">Gaming</div>
+
+      <div class="link" style="cursor: default;">
+        <div class="icon">🎮</div>
+        <div class="copy">
+          <span class="title">PlayStation</span>
+          <span class="sub">PSN: Sorrowabie</span>
+        </div>
+      </div>
+
+      <div class="link" style="cursor: default;">
+        <div class="icon">👤</div>
+        <div class="copy">
+          <span class="title">Discord Username</span>
+          <span class="sub">9e08</span>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <span class="dot"></span> CURSED1X COMMUNITY
+    </footer>
+  </main>
+</body>
+</html>
